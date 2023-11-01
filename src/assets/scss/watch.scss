@@ -1,0 +1,128 @@
+.watch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: url('../images/watch-case.png') no-repeat center center;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background: $background-primary-color;
+      filter: blur(3px);
+    }
+
+    &::before {
+      top: -5px;
+    }
+
+    &::after {
+      bottom: -5px;
+    }
+  }
+
+  .bar-minutes,
+  .bar-seconds {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    z-index: 10;
+  }
+
+  .bar-seconds span {
+    position: absolute;
+    transform: rotate(calc(var(--nth-child) * 6deg));
+    inset: -20px;
+    text-align: center;
+  }
+
+  .bar-minutes span {
+    position: absolute;
+    transform: rotate(calc(var(--nth-child) * 30deg));
+    inset: -20px;
+    text-align: center;
+  }
+
+  .bar-seconds span p {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background-color: $background-primary-color;
+    opacity: 0.5;
+  }
+
+  .bar-minutes span p {
+    display: inline-block;
+    width: 2px;
+    height: 30px;
+    background-color: $background-primary-color;
+  }
+
+  .hour-hand, .minute-hand, .second-hand {
+    border-radius: 5px;
+    transform-origin: bottom;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .second-hand {
+    width: 0.5px;
+    height: 100px;
+    background-color: $indicator-primary-color;
+
+    &.transition-effect {
+    }
+  }
+
+  .minute-hand {
+    width: 3px;
+    height: 80px;
+    background-color: $indicator-primary-color;
+    border: 2px solid $indicator-border-color;
+
+    &.transition-effect {
+    }
+  }
+
+  .hour-hand {
+    width: 5px;
+    height: 50px;
+    background-color: $indicator-primary-color;
+    border: 2px solid $indicator-border-color;
+
+    &.transition-effect {
+    }
+  }
+
+  &-background {
+    position: absolute;
+    width: 205px;
+    height: 250px;
+    background: radial-gradient(circle, $background-watch-face-color, black);
+    border-radius: 25%;
+
+    &-digital-tooltip {
+      display: inline-block;
+      padding: 5px;
+      position: relative;
+      background-color: $background-primary-color;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      z-index: 100;
+    }
+  }
+}
