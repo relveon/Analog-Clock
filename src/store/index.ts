@@ -4,7 +4,6 @@ import tooltipCoordinatesReducer from "./tooltipReducer/tooltipReducer";
 export const store = configureStore({
   reducer: {
     tooltipCoordinates: tooltipCoordinatesReducer,
-    // watchTheme: watchThemeReducer,
   }
 })
 

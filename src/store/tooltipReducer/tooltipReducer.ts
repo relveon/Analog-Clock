@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TooltipCoordinates } from "../../types/coordinates";
+import type { TooltipCoordinates } from "../../types/coordinates";
 
 const initialState: TooltipCoordinates = { left: 0, top: 0 }
 
@@ -9,7 +9,7 @@ const tooltipCoordinatesSlice = createSlice({
   reducers: {
     setCoordinates(state, action) {
       const { x, y } = action.payload
-      return { ...state, left: x - 30, top: y - 30 }
+      return { ...state, left: x, top: y - 50 }
     },
   },
 })

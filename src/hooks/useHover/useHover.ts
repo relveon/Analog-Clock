@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { MouseCoordinates } from "../../types/coordinates";
+import type { MouseCoordinates } from "../../types/coordinates";
 
 interface UseHoverHook {
   isHovered: boolean
@@ -14,14 +14,14 @@ const useHover = (): UseHoverHook => {
   const [isHovered, setHovered] = useState(false)
   const [mouseCoordinates, setMouseCoordinates] = useState(initMouseCoordinates)
 
-  const ref = useRef(null);
+  const ref: React.MutableRefObject<HTMLDivElement> = useRef(null);
 
-  const handleMouseOver = (e) => {
+  const handleMouseOver = (e): void => {
     setMouseCoordinates({ x: e.clientX - e.target.offsetLeft, y: e.clientY - e.target.offsetTop })
     setHovered(true)
   };
 
-  const handleMouseOut = () => {
+  const handleMouseOut = (): void => {
     setMouseCoordinates(initMouseCoordinates)
     setHovered(false)
   }
